@@ -37,3 +37,21 @@ def get_fnames(path, extension=''):
         if (x.find(extension) != -1):
             page_names.append(x)
     return page_names
+
+
+def find_all(data_line, substr):
+    """
+    Finds all 'substr' in 'data_line'
+    Returns a list of indexes
+    """
+    i_list = []
+    a = 0
+    b = 0
+    while True:
+        b = data_line[a:].find(substr)
+        if(b == -1):
+            break
+        i_list.append(b+a)
+        a = i_list[-1]+1
+    return i_list
+    
